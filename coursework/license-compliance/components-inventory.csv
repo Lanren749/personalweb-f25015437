@@ -1,0 +1,9 @@
+﻿component_or_material,version_or_snapshot,paths,license_or_rights,evidence_method,limitations
+Apache Commons CLI,1.9.0 / 698b238276c0e22e97e4aec703a0b00201d29666,upstream source: 116 files,Apache-2.0; 3 unresolved file-header items,Rat + LICENSE/NOTICE manual review,No downloaded dependencies or binary release scan
+Apache Rat,0.16.1,external audit tool,Apache-2.0,Official POM + download fingerprint,Not website runtime
+Website original HTML/CSS/JavaScript,2026-10-29 snapshot,index.html,MIT for original program code,Rat MIT + root LICENSE,Only exact snapshot is covered
+Website license statement,2026-10-29 snapshot,LICENSE,MIT notice for scoped original code,Rat notice + manual review,Does not license photographs or report text
+Website documents,2026-10-29 snapshot,README.md; THIRD_PARTY_NOTICES.md,Course review materials; outside code MIT scope,Manual UTF-8 text review; Rat misclassified binary,No permission inference from binary class
+Personal photograph,existing local material,photo.jpg,Outside code MIT; publisher to verify source/portrait rights,Manual inventory only,Not scanned; rights not independently verified
+Third-party front-end runtime packages/CDN,four-file subset,index.html,No external package/CDN reference observed,Manual HTML inspection,Not all repository content or future changes
+System fonts,visitor operating system,CSS font-family,Provided by visitor device,Manual CSS inspection,No font files redistributed
