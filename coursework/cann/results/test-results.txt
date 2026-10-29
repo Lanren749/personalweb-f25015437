@@ -1,0 +1,27 @@
+Actual local CPU test run
+Recorded at: 2026-10-29T13:35:22+08:00
+Python: 3.9.6
+Platform: Darwin arm64
+Command: python3 -B -m unittest discover -s coursework/cann -p 'test_*.py' -v
+No Ascend/NPU execution; no official contest evaluation.
+
+test_batch_pairs_are_independent (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_bfloat_quantization_rounds_to_nearest_even (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_four_storage_layouts_with_non_square_matrices (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_half_quantization_rounds_to_nearest_even (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_max_then_sum_cannot_be_reversed (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_official_all_negative_example (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_official_basic_example (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_randomized_layouts_dtypes_and_tail_tiles (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_reject_invalid_inputs (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_reject_invalid_tile_sizes (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_reject_mismatched_shape_dtype_or_layout_flag (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_repeated_runs_are_deterministic (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+test_zero_input (test_batch_matmul_max_sum.BatchMatmulMaxSumTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.147s
+
+OK
+
+Exit code: 0

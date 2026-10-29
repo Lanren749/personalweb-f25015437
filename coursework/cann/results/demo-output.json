@@ -1,0 +1,24 @@
+{
+  "mode": "CPU teaching prototype; not an Ascend C submission",
+  "operator": "BatchMatmulMaxSum",
+  "x1_storage_shape": [
+    1,
+    2,
+    2
+  ],
+  "x2_storage_shape": [
+    1,
+    2,
+    3
+  ],
+  "input_dtype": "float16",
+  "accumulation": "Python FP64",
+  "output_rounding": "FP32",
+  "reference": [
+    2.0
+  ],
+  "tiled": [
+    2.0
+  ],
+  "matches": true
+}
