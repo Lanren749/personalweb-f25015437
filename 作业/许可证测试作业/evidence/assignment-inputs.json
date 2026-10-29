@@ -1,0 +1,41 @@
+{
+  "assignment": "平时作业1-第2章开源合规与许可证",
+  "student": {
+    "name": "宋佳威",
+    "student_id": "F2505437",
+    "class": "F250117",
+    "school": "上海杉达学院"
+  },
+  "review_date": "2026-10-29",
+  "requirements": {
+    "project_community": "Apache Software Foundation",
+    "max_pages_including_cover": 5,
+    "filename": "F250117-F2505437-宋佳威-许可证测试作业",
+    "parts": [
+      "开源项目介绍",
+      "扫描工具安装过程及实际问题",
+      "工具输出检测报告",
+      "检测结果的详细分析"
+    ]
+  },
+  "source_documents": [
+    {
+      "filename": "平时作业要求1 (1).docx",
+      "sha256": "f5906865b19a30e12dcbfab2771d4b04fae9e8646a236413ec21ccf41f95952f"
+    },
+    {
+      "filename": "33款开源许可合规工具-逐条优缺点与选型手册.docx",
+      "sha256": "f457aed3dc076c972510119fdf5cb3822531d02f35845e3f6850c45375696743"
+    },
+    {
+      "filename": "平时作业模板(命名要求：学号-姓名-作业1，2，3，4) .docx",
+      "sha256": "690fd874b1a39e8d8dc9260147cf088047d09e36c7f26130b5944ccc6d18e302"
+    }
+  ],
+  "correction": {
+    "class": "用户更正为F250117",
+    "display_name": "用户更名为许可证测试作业",
+    "teacher_filename_convention": "原文要求班级-学号-姓名-作业1；本次按用户指定名称展示",
+    "historical_scan_inputs": "保持原始字节，不更改旧扫描快照"
+  }
+}

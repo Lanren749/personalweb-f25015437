@@ -1,0 +1,5 @@
+git ls-remote https://github.com/apache/commons-cli.git refs/tags/rel/commons-cli-1.9.0*
+be78abd93d5f4ad7e82acdcc13ccc7243aae5806 refs/tags/rel/commons-cli-1.9.0
+698b238276c0e22e97e4aec703a0b00201d29666 refs/tags/rel/commons-cli-1.9.0^{}
+
+Verified on 2026-10-29. JAR manifest Implementation-Version: 0.16.1

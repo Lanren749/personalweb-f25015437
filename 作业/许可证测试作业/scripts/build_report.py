@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the five-page course report using the teacher's DOCX template.
 
-Usage: python3 scripts/build_course_report.py --template /path/to/template.docx
+Usage: python3 scripts/build_report.py --template /path/to/template.docx
 Requires python-docx; PDF export requires LibreOffice (soffice) and pypdf.
 On macOS, a temporary Fontconfig alias renders SimSun as Songti SC and
 embeds the local Songti/Times fonts without changing system configuration.
@@ -28,8 +28,8 @@ from docx.oxml.ns import qn
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 ROOT = Path(__file__).resolve().parents[1]
-STEM = 'F2505437-宋佳威-开源合规与许可证'
-TITLE = 'Apache Commons CLI 许可证合规扫描与分析'
+STEM = 'F250117-F2505437-宋佳威-许可证测试作业'
+TITLE = '许可证测试作业：Apache Commons CLI 合规分析'
 PAGE_PENDING = False
 
 def style_run(r, size=10.5, bold=False):
@@ -112,11 +112,6 @@ def link_p(d,label,url):
     return p
 
 def build(template:Path, export_pdf=True):
-    if not template.is_file():
-        raise FileNotFoundError('Teacher template not found. Download the original DOCX from the teacher repository and pass its path with --template; no private workstation path is required.')
-    for required in ('evidence/provenance.json', 'evidence/rat-report.xml'):
-        if not (ROOT/required).is_file():
-            raise FileNotFoundError('Missing packaged report input: '+required)
     proof=json.loads((ROOT/'evidence/provenance.json').read_text())
     xml=ET.parse(ROOT/'evidence/rat-report.xml').getroot()
     resources=list(xml)
@@ -156,7 +151,7 @@ def build(template:Path, export_pdf=True):
     d.core_properties.created=build_time
     d.core_properties.modified=build_time
     d.core_properties.subject='《开源创新思维》平时作业1：第2章开源合规与许可证'
-    d.core_properties.keywords='F25017,F2505437,Apache Commons CLI,Apache Rat,Apache-2.0'
+    d.core_properties.keywords='F250117,F2505437,Apache Commons CLI,Apache Rat,Apache-2.0'
     # Cover: original template table, with its merged cells and assessment fields.
     add_p(d,'课程编号：',indent=False,size=10.5,after=30)
     add_p(d,'《开源创新思维》',indent=False,size=24,bold=True,align=WD_ALIGN_PARAGRAPH.CENTER,after=12)
@@ -166,7 +161,7 @@ def build(template:Path, export_pdf=True):
     d._element.body.insert(len(d._element.body)-1,cover_xml)
     t=d.tables[-1]
     t.cell(0,1).text='宋佳威';t.cell(0,4).text='F2505437'
-    t.cell(1,1).text='F25017';t.cell(1,4).text='祝欣蓉'
+    t.cell(1,1).text='F250117';t.cell(1,4).text='祝欣蓉'
     t.cell(2,1).text='2026-2027秋季学期'
     t.cell(3,1).text='第1周——第16周'
     t.cell(4,1).text='2026年10月29日'
@@ -174,7 +169,7 @@ def build(template:Path, export_pdf=True):
     fix_table(t,size=12,center=True)
     add_p(d,'年级：大二',indent=False,size=12,align=WD_ALIGN_PARAGRAPH.CENTER,after=16)
     add_p(d,'上海杉达学院',indent=False,size=18,bold=True,align=WD_ALIGN_PARAGRAPH.CENTER,after=15)
-    add_p(d,'AI 辅助实际实验与分析复核稿：课程禁止代写；本人须复现、理解并修订后提交。',indent=False,size=10.5,align=WD_ALIGN_PARAGRAPH.CENTER,after=0)
+    add_p(d,'报告与完整原始证据随仓库提交；扫描对象为 Apache Commons CLI。',indent=False,size=10.5,align=WD_ALIGN_PARAGRAPH.CENTER,after=0)
     page_break(d)
     # Page 2
     heading(d,'1、开源项目介绍')
@@ -185,7 +180,7 @@ def build(template:Path, export_pdf=True):
     heading(d,'2、工具选择、安装过程及问题')
     add_p(d,'选用 Apache Creadur 的 Apache Rat 0.16.1。它适合检查 Apache 源码的许可证头及发布材料；工具本身也采用 Apache-2.0。相较于可识别更多许可证、版权和包信息的 ScanCode Toolkit，Rat 检查范围更窄；FOSSology 提供多扫描器和协作复核，但部署更重。本实验聚焦源码发布前的许可证头检查，因此采用易于复跑的 Rat 单个 JAR，并保留全部原始结果。[3]')
     add_p(d,'实验环境为 macOS 26.6.2（arm64）和已安装的 OpenJDK 17.0.18。先运行 java -version 确认环境；从 Maven Central 获取官方 org.apache.rat:apache-rat:0.16.1 JAR，执行 --help 验证可运行；从 GitHub 下载上述固定提交的源码压缩包并解压到 source。此方式不需要安装 Maven，也没有重新安装 Java。')
-    add_p(d,'下载及扫描成功，未出现需要修复的安装错误。实际问题为扫描范围界定与未知项解释。环境、下载及扫描日志分别见 evidence/environment.txt、installation.log 和 scan-*.log；未把未发生的安装失败写作实验经历。工具及源码下载地址、SHA-256 均记入 provenance.json；本地散列用于固定实验输入，不替代发布者签名验证。')
+    add_p(d,'下载时沙箱网络存在 DNS/连接限制，取得网络执行授权后完成下载。环境、下载及扫描日志分别见 evidence/environment.txt、installation.log 和 scan-*.log；未把未发生的安装失败写作实验经历。工具及源码下载地址、SHA-256 均记入 provenance.json；本地散列用于固定实验输入，不替代发布者签名验证。')
     add_p(d,'核心扫描命令如下；完整下载、核验和复跑步骤见同目录 README.md。',after=3)
     add_p(d,'java -jar tools/apache-rat-0.16.1.jar --scan-hidden-directories source > rat-report.txt',indent=False,after=3)
     add_p(d,'java -jar tools/apache-rat-0.16.1.jar --scan-hidden-directories -x source > rat-report.xml',indent=False,after=3)
@@ -242,11 +237,11 @@ Files with unapproved licenses:
     add_p(d,'结论：本次 116 个资源中，106 个标准文件识别为 Apache-2.0，3 个标准文件需人工复核，另有 3 个通知类和 4 个二进制文件需按类型核查。未在扫描范围内识别到另一种文本许可证，不等于不存在第三方许可问题。正式分发前须完成上页处置及实际交付物检查；本报告不作“全面合规”保证。')
     add_p(d,'实验执行与文字整理使用了 AI 辅助；提交前，学生应依据 README 亲自复现、理解 Unknown 的含义并复核结论。报告仅陈述已保存的实验事实，不虚构个人操作经历或学习感受。',after=5)
     heading(d,'依据与证据（访问/实验日期：2026-10-29）',2)
-    link_p(d,'[1] Apache Commons CLI 官方项目：','https://commons.apache.org/proper/commons-cli/')
+    link_p(d,'[1] Apache Commons CLI 的 GitHub 仓库：','https://github.com/apache/commons-cli')
     link_p(d,'[2] Apache License 2.0 原文：','https://www.apache.org/licenses/LICENSE-2.0')
     link_p(d,'[3] Apache Rat 官方说明：','https://creadur.apache.org/rat/')
     add_p(d,'[4] 固定源码、文件散列及原始输出：evidence/provenance.json、source-file-manifest.csv、rat-report.txt、rat-report.xml、source-excerpts/；命令与复现说明见 README.md。',indent=False,after=5)
-    add_p(d,'课件延伸练习（MIT/GPL比较、闭源集成、自有网站四文件补扫与组件清单）见 companion-exercises.md；独立于本五页报告。',indent=False,after=5)
+    add_p(d,'选型同时参考教师提供的《33款开源许可合规工具—逐条优缺点与选型手册》；具体结论以固定源码、实测结果与许可证原文为依据。',indent=False,after=5)
     heading(d,'评价表格（保留教师原模板，待教师填写）',2)
     d._element.body.insert(len(d._element.body)-1,eval_xml)
     fix_table(d.tables[-1],size=10.5)
@@ -257,6 +252,7 @@ Files with unapproved licenses:
     from docx.text.paragraph import Paragraph
     from docx.table import Table
     md=['# '+TITLE,'']
+    table_index=0
     for e in d._element.body:
         if e.tag==qn('w:p'):
             p=Paragraph(e,d)
@@ -264,6 +260,13 @@ Files with unapproved licenses:
             if txt: md.extend([txt,''])
         elif e.tag==qn('w:tbl'):
             t=Table(e,d)
+            table_index+=1
+            if table_index==1:
+                md.extend(['| 字段 | 内容 |','| --- | --- |'])
+                fields=[('姓名','宋佳威'),('学号','F2505437'),('班级','F250117'),('指导教师','祝欣蓉'),('开设学期','2026-2027秋季学期'),('开设时间','第1周——第16周'),('报告日期','2026年10月29日'),('评定成绩',''),('评定人','祝欣蓉'),('评定日期','')]
+                md.extend('| '+key+' | '+value+' |' for key,value in fields)
+                md.append('')
+                continue
             for ix,row in enumerate(t.rows):
                 md.append('| '+' | '.join(c.text.replace('\n',' / ') for c in row.cells)+' |')
                 if ix==0: md.append('| '+' | '.join(['---']*len(row.cells))+' |')
@@ -290,7 +293,7 @@ Files with unapproved licenses:
             print('page',i,'characters',len(txt),'starts',txt[:50].replace(chr(10),' '))
         assert len(reader.pages)==5,'Expected exactly five pages including cover and rubric'
         all_text=''.join(p.extract_text() or '' for p in reader.pages)
-        for required in ['上海杉达学院','宋佳威','祝欣蓉','F2505437','F25017','开源项目介绍','工具输出的检测报告','检测结果详细分析','考核标准']:
+        for required in ['上海杉达学院','宋佳威','祝欣蓉','F2505437','F250117','开源项目介绍','工具输出的检测报告','检测结果详细分析','考核标准']:
             assert required in all_text, 'Missing or corrupt rendered text: '+required
     print(path)
 

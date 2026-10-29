@@ -1,6 +1,6 @@
 # 第二周：CANN 算子开发预研（AI 辅助学习材料）
 
-学生：宋佳威 · 学号：F2505437 · 班级：F25017 · 上海杉达学院
+学生：宋佳威 · 学号：F2505437 · 班级：F250117 · 上海杉达学院
 
 记录日期：2026-10-29（Asia/Shanghai）。
 
@@ -59,8 +59,8 @@
 仅需 Python 3.9 或更新版本，无第三方依赖。推荐在仓库根目录执行：
 
 ```sh
-python3 -B coursework/cann/demo.py
-python3 -B -m unittest discover -s coursework/cann -p 'test_*.py' -v
+python3 -B 作业/CANN算子预研作业/demo.py
+python3 -B -m unittest discover -s 作业/CANN算子预研作业 -p 'test_*.py' -v
 ```
 
 示例输出的 `reference` 与 `tiled` 都应为 `[2.0]`，`matches` 为 `true`。
