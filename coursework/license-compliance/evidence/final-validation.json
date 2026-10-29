@@ -1,0 +1,13 @@
+{
+  "pdf_pages": 5,
+  "cover_contains_name_id_class": true,
+  "teacher_scores_blank": true,
+  "normal_font": "Times New Roman; eastAsia 宋体",
+  "normal_font_points": 10.5,
+  "normal_line_spacing": 1.25,
+  "visual_review": "Rendered cover and page 5 reviewed; clear readable text, blank teacher scoring cells, no overflow.",
+  "pdf_font_note": "DOCX specifies 宋体; local PDF export substitutes Songti SC for Chinese.",
+  "source_scan_files": 116,
+  "own_site_scan_files": 4,
+  "full_reproduction_matches_except_timestamp": true
+}

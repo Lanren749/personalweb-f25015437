@@ -1,0 +1,39 @@
+{
+  "rat-report.xml": {
+    "timestamp": "2026-10-29T13:29:09+08:00",
+    "resources": 116,
+    "types": {
+      "standard": 109,
+      "notice": 3,
+      "binary": 4
+    },
+    "license_families": {
+      "Apache License Version 2.0": 106,
+      "Unknown license": 3
+    },
+    "unapproved_paths": [
+      "source/.gitignore",
+      "source/src/site/resources/download_cli.cgi",
+      "source/src/site/resources/profile.jacoco"
+    ],
+    "source_coverage": {
+      "physical_files": 116,
+      "unscanned_files": [],
+      "unexpected_resources": [],
+      "matches": true
+    }
+  },
+  "own-site-rat.xml": {
+    "timestamp": "2026-10-29T13:45:53+08:00",
+    "resources": 4,
+    "types": {
+      "notice": 1,
+      "binary": 2,
+      "standard": 1
+    },
+    "license_families": {
+      "The MIT License": 1
+    },
+    "unapproved_paths": []
+  }
+}

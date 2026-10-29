@@ -1,0 +1,31 @@
+{
+  "project": {
+    "name": "Apache Commons CLI",
+    "version": "1.9.0",
+    "repository": "https://github.com/apache/commons-cli",
+    "tag": "rel/commons-cli-1.9.0",
+    "tag_object": "be78abd93d5f4ad7e82acdcc13ccc7243aae5806",
+    "commit": "698b238276c0e22e97e4aec703a0b00201d29666",
+    "archive_url": "https://codeload.github.com/apache/commons-cli/tar.gz/698b238276c0e22e97e4aec703a0b00201d29666",
+    "archive_sha256": "986d613436628bb6ee49c5b6ebafab75cd1b06849860551fe2340c871d35e533",
+    "source_kind": "GitHub commit source snapshot, not Apache distribution archive"
+  },
+  "tool": {
+    "name": "Apache Rat",
+    "version": "0.16.1",
+    "url": "https://repo.maven.apache.org/maven2/org/apache/rat/apache-rat/0.16.1/apache-rat-0.16.1.jar",
+    "sha256": "7021c0da25bf92539428427eefbfa1194673b7e4eea7688a17813cb075731431",
+    "hash_note": "Local recorded fingerprint; not claimed as independently verified publisher checksum"
+  },
+  "scope": {
+    "files": 116,
+    "include_hidden_directories": true,
+    "custom_excludes": [],
+    "not_covered": [
+      "transitive dependencies",
+      "compiled distribution",
+      "vulnerabilities",
+      "binary asset license provenance"
+    ]
+  }
+}

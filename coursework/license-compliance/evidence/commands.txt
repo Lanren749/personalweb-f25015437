@@ -1,0 +1,13 @@
+# Executed 2026-10-29 Asia/Shanghai. Paths use variables to avoid workstation paths.
+# source/ is the fixed upstream commit; own-site/ is the four-file snapshot.
+git ls-remote https://github.com/apache/commons-cli.git 'refs/tags/rel/commons-cli-1.9.0*'
+curl -fL --retry 2 --connect-timeout 20 --max-time 180 https://repo.maven.apache.org/maven2/org/apache/rat/apache-rat/0.16.1/apache-rat-0.16.1.jar -o tools/apache-rat-0.16.1.jar
+curl -fL --retry 2 --connect-timeout 20 --max-time 180 https://codeload.github.com/apache/commons-cli/tar.gz/698b238276c0e22e97e4aec703a0b00201d29666 -o commons-cli.tar.gz
+tar -xzf commons-cli.tar.gz -C source --strip-components=1
+java -jar tools/apache-rat-0.16.1.jar --xml --scan-hidden-directories --out "$OUT/rat-report.xml" source
+java -jar tools/apache-rat-0.16.1.jar --scan-hidden-directories --out "$OUT/rat-report.txt" source
+java -jar tools/apache-rat-0.16.1.jar --xml --scan-hidden-directories --out "$OUT/own-site-rat.xml" own-site
+java -jar tools/apache-rat-0.16.1.jar --scan-hidden-directories --out "$OUT/own-site-rat.txt" own-site
+# All commands exited 0; exit 0 is not a legal compliance guarantee.
+# Validated final replay command:
+bash coursework/license-compliance/scripts/reproduce-full.sh /tmp/songjiawei-license-reproduced-full

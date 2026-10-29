@@ -1,0 +1,12 @@
+{
+  "rat-report.xml": {
+    "matches_except_timestamp": true,
+    "first_timestamp": "2026-10-29T13:29:09+08:00",
+    "reproduced_timestamp": "2026-10-29T13:46:32+08:00"
+  },
+  "own-site-rat.xml": {
+    "matches_except_timestamp": true,
+    "first_timestamp": "2026-10-29T13:45:53+08:00",
+    "reproduced_timestamp": "2026-10-29T13:46:32+08:00"
+  }
+}

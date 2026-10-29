@@ -1,0 +1,195 @@
+
+*****************************************************
+Summary
+-------
+Generated at: 2026-10-29T13:29:09+08:00
+
+Notes: 3
+Binaries: 4
+Archives: 0
+Standards: 109
+
+Apache Licensed: 106
+Generated Documents: 0
+
+JavaDocs are generated, thus a license header is optional.
+Generated files do not require license headers.
+
+3 Unknown Licenses
+
+*****************************************************
+
+Files with unapproved licenses:
+
+  source/.gitignore
+  source/src/site/resources/download_cli.cgi
+  source/src/site/resources/profile.jacoco
+
+*****************************************************
+
+*****************************************************
+  Files with Apache License headers will be marked AL
+  Binary files (which do not require any license headers) will be marked B
+  Compressed archives will be marked A
+  Notices, licenses etc. will be marked N
+  AL    source/.asf.yaml
+ !????? source/.gitignore
+  AL    source/CODE_OF_CONDUCT.md
+  AL    source/CONTRIBUTING.md
+  N     source/LICENSE.txt
+  N     source/NOTICE.txt
+  AL    source/README.md
+  N     source/RELEASE-NOTES.txt
+  AL    source/SECURITY.md
+  AL    source/pom.xml
+  AL    source/.github/GH-ROBOTS.txt
+  AL    source/.github/dependabot.yml
+  AL    source/.github/workflows/codeql-analysis.yml
+  AL    source/.github/workflows/maven.yml
+  AL    source/.github/workflows/scorecards-analysis.yml
+  AL    source/src/assembly/bin.xml
+  AL    source/src/assembly/src.xml
+  AL    source/src/changes/changes.xml
+  AL    source/src/changes/release-notes.vm
+  AL    source/src/conf/checkstyle-suppressions.xml
+  AL    source/src/conf/checkstyle.xml
+  AL    source/src/conf/spotbugs-exclude-filter.xml
+  AL    source/src/main/java/org/apache/commons/cli/AlreadySelectedException.java
+  AL    source/src/main/java/org/apache/commons/cli/AmbiguousOptionException.java
+  AL    source/src/main/java/org/apache/commons/cli/BasicParser.java
+  AL    source/src/main/java/org/apache/commons/cli/Char.java
+  AL    source/src/main/java/org/apache/commons/cli/CommandLine.java
+  AL    source/src/main/java/org/apache/commons/cli/CommandLineParser.java
+  AL    source/src/main/java/org/apache/commons/cli/Converter.java
+  AL    source/src/main/java/org/apache/commons/cli/DefaultParser.java
+  AL    source/src/main/java/org/apache/commons/cli/DeprecatedAttributes.java
+  AL    source/src/main/java/org/apache/commons/cli/GnuParser.java
+  AL    source/src/main/java/org/apache/commons/cli/HelpFormatter.java
+  AL    source/src/main/java/org/apache/commons/cli/MissingArgumentException.java
+  AL    source/src/main/java/org/apache/commons/cli/MissingOptionException.java
+  AL    source/src/main/java/org/apache/commons/cli/Option.java
+  AL    source/src/main/java/org/apache/commons/cli/OptionBuilder.java
+  AL    source/src/main/java/org/apache/commons/cli/OptionGroup.java
+  AL    source/src/main/java/org/apache/commons/cli/OptionValidator.java
+  AL    source/src/main/java/org/apache/commons/cli/Options.java
+  AL    source/src/main/java/org/apache/commons/cli/ParseException.java
+  AL    source/src/main/java/org/apache/commons/cli/Parser.java
+  AL    source/src/main/java/org/apache/commons/cli/PatternOptionBuilder.java
+  AL    source/src/main/java/org/apache/commons/cli/PosixParser.java
+  AL    source/src/main/java/org/apache/commons/cli/TypeHandler.java
+  AL    source/src/main/java/org/apache/commons/cli/UnrecognizedOptionException.java
+  AL    source/src/main/java/org/apache/commons/cli/Util.java
+  AL    source/src/main/java/org/apache/commons/cli/overview.html
+  AL    source/src/main/java/org/apache/commons/cli/package-info.java
+  B     source/src/media/logo.xcf
+  AL    source/src/site/site.xml
+  AL    source/src/site/resources/.htaccess
+ !????? source/src/site/resources/download_cli.cgi
+ !????? source/src/site/resources/profile.jacoco
+  B     source/src/site/resources/images/1x1.gif
+  B     source/src/site/resources/images/logo.png
+  B     source/src/site/resources/images/options.png
+  AL    source/src/site/resources/images/svg/commandlines.svg
+  AL    source/src/site/resources/images/svg/diagrams-cli2.js
+  AL    source/src/site/resources/images/svg/diagrams.css
+  AL    source/src/site/resources/images/svg/diagrams.js
+  AL    source/src/site/resources/images/svg/options.svg
+  AL    source/src/site/resources/images/svg/util.svg
+  AL    source/src/site/xdoc/download_cli.xml
+  AL    source/src/site/xdoc/index.xml
+  AL    source/src/site/xdoc/introduction.xml
+  AL    source/src/site/xdoc/issue-tracking.xml
+  AL    source/src/site/xdoc/mail-lists.xml
+  AL    source/src/site/xdoc/properties.xml
+  AL    source/src/site/xdoc/release_1_0.xml
+  AL    source/src/site/xdoc/release_1_2.xml
+  AL    source/src/site/xdoc/release_1_3.xml
+  AL    source/src/site/xdoc/release_1_3_1.xml
+  AL    source/src/site/xdoc/release_1_4.xml
+  AL    source/src/site/xdoc/upgrading-1.0-to-1.1.xml
+  AL    source/src/site/xdoc/usage.xml
+  AL    source/src/test/java/org/apache/commons/cli/AbstractParserTestCase.java
+  AL    source/src/test/java/org/apache/commons/cli/AlreadySelectedExceptionTest.java
+  AL    source/src/test/java/org/apache/commons/cli/ApplicationTest.java
+  AL    source/src/test/java/org/apache/commons/cli/ArgumentIsOptionTest.java
+  AL    source/src/test/java/org/apache/commons/cli/BasicParserTest.java
+  AL    source/src/test/java/org/apache/commons/cli/CommandLineTest.java
+  AL    source/src/test/java/org/apache/commons/cli/ConverterTests.java
+  AL    source/src/test/java/org/apache/commons/cli/DefaultParserTest.java
+  AL    source/src/test/java/org/apache/commons/cli/DeprecatedAttributesTest.java
+  AL    source/src/test/java/org/apache/commons/cli/DisablePartialMatchingTest.java
+  AL    source/src/test/java/org/apache/commons/cli/GnuParserTest.java
+  AL    source/src/test/java/org/apache/commons/cli/HelpFormatterTest.java
+  AL    source/src/test/java/org/apache/commons/cli/OptionBuilderTest.java
+  AL    source/src/test/java/org/apache/commons/cli/OptionGroupTest.java
+  AL    source/src/test/java/org/apache/commons/cli/OptionTest.java
+  AL    source/src/test/java/org/apache/commons/cli/OptionValidatorTest.java
+  AL    source/src/test/java/org/apache/commons/cli/OptionsTest.java
+  AL    source/src/test/java/org/apache/commons/cli/ParseExceptionTest.java
+  AL    source/src/test/java/org/apache/commons/cli/PatternOptionBuilderTest.java
+  AL    source/src/test/java/org/apache/commons/cli/PosixParserTest.java
+  AL    source/src/test/java/org/apache/commons/cli/SolrCliTest.java
+  AL    source/src/test/java/org/apache/commons/cli/SolrCreateToolTest.java
+  AL    source/src/test/java/org/apache/commons/cli/TypeHandlerTest.java
+  AL    source/src/test/java/org/apache/commons/cli/UnrecognizedOptionExceptionTest.java
+  AL    source/src/test/java/org/apache/commons/cli/UtilTest.java
+  AL    source/src/test/java/org/apache/commons/cli/ValueTest.java
+  AL    source/src/test/java/org/apache/commons/cli/ValuesTest.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI133Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI13Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI148Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI162Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI18Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI252Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI265Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI266Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI312Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI325Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugCLI71Test.java
+  AL    source/src/test/java/org/apache/commons/cli/bug/BugsTest.java
+  AL    source/src/test/resources/org/apache/commons/cli/existing-readable.file
+ 
+*****************************************************
+
+ Printing headers for text files without a valid license header...
+ 
+=====================================================
+== File: source/.gitignore
+=====================================================
+### https://raw.github.com/github/gitignore/f2ce448f2ba7a092da05482ceca99209127c0884/maven.gitignore
+
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Exclude maven wrapper
+!/.mvn/wrapper/maven-wrapper.jar
+
+site-content
+/.classpath
+/.project
+/.settings/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.ipr
+*.iml
+
+=====================================================
+== File: source/src/site/resources/download_cli.cgi
+=====================================================
+#!/bin/sh
+# Just call the standard mirrors.cgi script. It will use download.html
+# as the input template.
+exec /www/www.apache.org/dyn/mirrors/mirrors.cgi $*
+
+=====================================================
+== File: source/src/site/resources/profile.jacoco
+=====================================================

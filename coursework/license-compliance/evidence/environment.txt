@@ -1,0 +1,9 @@
+UTC 2026-10-29T05:27:11Z
+Darwin arm64
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83
+/opt/homebrew/bin/java
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment Homebrew (build 17.0.18+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.18+0, mixed mode, sharing)

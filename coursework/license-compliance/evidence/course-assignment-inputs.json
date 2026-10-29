@@ -1,0 +1,19 @@
+{
+  "student": {
+    "name": "宋佳威",
+    "student_id": "F2505437",
+    "class": "F25017",
+    "school": "上海杉达学院"
+  },
+  "filename": "F2505437-宋佳威-开源合规与许可证",
+  "sources": [
+    {
+      "filename": "平时作业要求.docx",
+      "sha256": "e08802851c91e072cf7325c77daaa894eb07200d583ab13663fe0392b6e84b56"
+    },
+    {
+      "filename": "平时作业模板(命名要求：学号-姓名-作业1，2，3，4) .docx",
+      "sha256": "690fd874b1a39e8d8dc9260147cf088047d09e36c7f26130b5944ccc6d18e302"
+    }
+  ]
+}
