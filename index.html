@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: MIT -->
+<!-- Copyright (c) 2026 宋佳威; photo.jpg is excluded from the code license. -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宋佳威 · 个人主页与开源课程</title>
+<meta name="description" content="宋佳威的个人主页与开源创新思维课程实践，上海杉达学院 F25017 班，学号 F2505437。">
+<style>
+:root {
+  --bg: #faf9f6;
+  --bg-card: #ffffff;
+  --bg-soft: #f3f0eb;
+  --text: #1a1a2e;
+  --text-muted: #555;
+  --text-light: #888;
+  --accent: #2d5f4f;
+  --accent-light: #3d8b6e;
+  --accent-glow: rgba(45, 95, 79, 0.12);
+  --highlight: #d97706;
+  --border: #e5e0d8;
+  --radius: 14px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.06), 0 12px 40px rgba(0,0,0,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* Top bar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 249, 246, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero - centered intro */
+.hero {
+  padding: 100px 24px 60px;
+  text-align: center;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+.hero-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 24px;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+.hero h1 .accent { color: var(--accent); }
+.hero-tagline {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.hero-tagline span { color: var(--highlight); font-weight: 600; }
+.hero-contact {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.hero-contact a.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.hero-contact a.primary:hover { background: var(--accent-light); }
+.hero-contact a.secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: #fff;
+}
+.hero-contact a.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Layout wrapper */
+.content { max-width: 1000px; margin: 0 auto; padding: 60px 24px; }
+
+/* Section */
+.sec { margin-bottom: 70px; }
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.sec-head h2 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.sec-head .label {
+  font-size: 13px;
+  color: var(--highlight);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* About - two column */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.info-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 14px;
+}
+.info-row:last-child { border-bottom: none; }
+.info-row span:first-child { color: var(--text-light); }
+.info-row span:last-child { font-weight: 500; }
+.info-bio {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  font-size: 15px;
+  line-height: 2;
+  color: var(--text-muted);
+}
+.info-bio strong { color: var(--text); }
+.info-bio .hl { color: var(--highlight); font-weight: 600; }
+
+/* Skills - chips */
+.skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skill {
+  padding: 8px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: default;
+}
+.skill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+.skill .cat { font-size: 11px; color: var(--text-light); margin-left: 6px; }
+
+/* Experience - cards */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.exp-item {
+  display: flex;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+}
+.exp-item:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-light);
+  transform: translateX(4px);
+}
+.exp-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: var(--accent-glow);
+}
+.exp-body { flex: 1; }
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.exp-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.exp-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.tag-red { background: #fee2e2; color: #dc2626; }
+.tag-blue { background: #dbeafe; color: #2563eb; }
+.tag-green { background: #d1fae5; color: #16a34a; }
+.tag-orange { background: #fef3c7; color: #d97706; }
+.tag-purple { background: #ede9fe; color: #7c3aed; }
+.exp-date {
+  font-size: 12px;
+  color: var(--text-light);
+  white-space: nowrap;
+  font-family: monospace;
+}
+.exp-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Projects - big cards */
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.proj-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.25s;
+}
+.proj-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  border-color: var(--accent-light);
+}
+.proj-banner {
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+.proj-card:nth-child(2) .proj-banner {
+  background: linear-gradient(90deg, var(--highlight), #fbbf24);
+}
+.proj-inner { padding: 24px; }
+.proj-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.proj-sub {
+  font-size: 13px;
+  color: var(--text-light);
+  font-family: monospace;
+  margin-bottom: 14px;
+}
+.proj-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.proj-features {
+  list-style: none;
+  margin-bottom: 16px;
+}
+.proj-features li {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 3px 0;
+  padding-left: 18px;
+  position: relative;
+}
+.proj-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-light);
+  font-weight: 700;
+}
+.proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.proj-tag {
+  padding: 4px 10px;
+  background: var(--bg-soft);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Contact strip */
+.contact-strip {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+}
+.contact-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.contact-pill .emoji { font-size: 20px; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+}
+footer p { font-size: 13px; color: var(--text-light); }
+footer a { color: var(--accent); text-decoration: none; }
+
+/* Reveal */
+.reveal { opacity: 1; }
+.js-motion .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.5s, transform 0.5s; }
+.js-motion .reveal.visible { opacity: 1; transform: translateY(0); }
+section { scroll-margin-top: 110px; }
+a:focus-visible { outline: 3px solid var(--highlight); outline-offset: 4px; }
+.course-note { margin: 18px 0; font-size: 14px; color: var(--text-muted); }
+.course-link { display: inline-block; margin: 14px 14px 0 0; color: var(--accent); font-weight: 600; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .js-motion .reveal { opacity: 1; transform: none; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 34px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .topbar-inner { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
+  .nav-links { flex-wrap: wrap; gap: 10px 16px; }
+  .nav-links a { font-size: 13px; }
+  .hero { padding-top: 58px; }
+  .content { padding: 40px 16px; }
+  .sec { margin-bottom: 50px; }
+  .exp-item { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="#" class="brand">宋佳威</a>
+    <ul class="nav-links">
+      <li><a href="#about">关于</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#exp">经历</a></li>
+      <li><a href="#projects">项目</a></li>
+      <li><a href="#coursework">课程作业</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-photo">
+    <img src="photo.jpg" alt="宋佳威">
+  </div>
+  <h1>宋佳威 <span class="accent">·</span> 数字探索者</h1>
+  <p class="hero-tagline">计算机科学与技术 / <span>鸿蒙 + AI 双栖开发者</span> / 开源贡献者</p>
+  <div class="hero-contact">
+    <a href="#projects" class="primary">查看项目</a>
+    <a href="#contact" class="secondary">联系我</a>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- About -->
+  <section class="sec" id="about">
+    <div class="sec-head reveal">
+      <h2>关于我</h2>
+      <span class="label">ABOUT</span>
+    </div>
+    <div class="about-grid">
+      <div class="info-card reveal">
+        <h3>基本信息</h3>
+        <div class="info-row"><span>姓名</span><span>宋佳威</span></div>
+        <div class="info-row"><span>年龄</span><span>18 岁</span></div>
+        <div class="info-row"><span>政治面貌</span><span>共青团员</span></div>
+        <div class="info-row"><span>户籍</span><span>安徽</span></div>
+        <div class="info-row"><span>现居</span><span>上海</span></div>
+        <div class="info-row"><span>学校</span><span>上海杉达学院</span></div>
+        <div class="info-row"><span>专业</span><span>计算机科学与技术</span></div>
+        <div class="info-row"><span>年级</span><span>大二</span></div>
+        <div class="info-row"><span>学号</span><span>F2505437</span></div>
+        <div class="info-row"><span>班级</span><span>F25017</span></div>
+      </div>
+      <div class="info-bio reveal">
+        热爱技术的计算机科学与技术专业学生。从高中担任<strong>学生会主席</strong>、参加青年马克思主义者培养工程，
+        到大学深入<span class="hl">鸿蒙生态、AI 智能体、开源项目</span>的技术实践，始终保持对新技术的探索热情。
+        <br><br>
+        在上海外服实习期间独立开发了<strong>员工关系智能体</strong>和<strong>51Job 反向招聘平台</strong>两个企业级项目。
+        通过鸿蒙激励计划上架了自己的 App，在鸿蒙创新赛中独立创作两个 AI 智能体，
+        入围<span class="hl">中国高校计算机大赛 AI 创意赛复赛</span>。
+        CSDN 发表 100+ 篇原创技术文章。
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="sec" id="skills">
+    <div class="sec-head reveal">
+      <h2>技能栈</h2>
+      <span class="label">SKILLS</span>
+    </div>
+    <div class="skill-grid reveal">
+      <div class="skill">HarmonyOS<span class="cat">鸿蒙</span></div>
+      <div class="skill">AI Agent<span class="cat">智能体</span></div>
+      <div class="skill">Python<span class="cat">后端</span></div>
+      <div class="skill">n8n<span class="cat">工作流</span></div>
+      <div class="skill">HTML/CSS/JS<span class="cat">前端</span></div>
+      <div class="skill">嵌入式系统<span class="cat">芯片</span></div>
+      <div class="skill">Git / AtomGit<span class="cat">开源</span></div>
+      <div class="skill">技术写作<span class="cat">CSDN</span></div>
+      <div class="skill">数据匹配<span class="cat">招聘</span></div>
+      <div class="skill">云端部署<span class="cat">多用户</span></div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="sec" id="exp">
+    <div class="sec-head reveal">
+      <h2>我的经历</h2>
+      <span class="label">EXPERIENCE</span>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-icon">💼</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">上海外服实习 — 智能体开发</span><span class="exp-tag tag-red">实习</span></div>
+            <div class="exp-date">2026</div>
+          </div>
+          <div class="exp-desc">在临港漕河泾人才有限公司实习，独立开发企业级员工关系智能体与 51Job 反向招聘平台。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">🏆</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">入围第九届中国高校计算机大赛 AI 创意赛复赛</span><span class="exp-tag tag-red">国家级</span></div>
+            <div class="exp-date">2026</div>
+          </div>
+          <div class="exp-desc">参加人工智能创意赛（鸿蒙高校创新赛），成功入围复赛。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">🚀</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">鸿蒙创新赛 · 极客赛道</span><span class="exp-tag tag-orange">创新</span></div>
+            <div class="exp-date">2025-2026</div>
+          </div>
+          <div class="exp-desc">独立创作两个 AI 智能体，展现独立研发与创新思维。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">📱</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">鸿蒙激励计划 — 成功上架 App</span><span class="exp-tag tag-blue">鸿蒙</span></div>
+            <div class="exp-date">2025-2026</div>
+          </div>
+          <div class="exp-desc">独立开发并成功上架应用，具备完整产品开发闭环经验。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">🔧</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">全国大学生嵌入式芯片与系统设计竞赛</span><span class="exp-tag tag-blue">国家级</span></div>
+            <div class="exp-date">2026</div>
+          </div>
+          <div class="exp-desc">深入嵌入式系统与芯片设计方向。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">📡</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">鸿蒙赋能交流会 — 实操工坊（上海站）</span><span class="exp-tag tag-blue">官方</span></div>
+            <div class="exp-date">2025.11 - 2026.04</div>
+          </div>
+          <div class="exp-desc">两次参与鸿蒙官方赋能交流会实操工坊。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">🌱</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">AtomGit 开源鸿蒙创新实践项目</span><span class="exp-tag tag-green">开源</span></div>
+            <div class="exp-date">2025-2026</div>
+          </div>
+          <div class="exp-desc">参与开源项目鸿蒙创新实践，为开源生态贡献代码。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">🤖</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">Gemma4 比赛</span><span class="exp-tag tag-purple">AI</span></div>
+            <div class="exp-date">2025-2026</div>
+          </div>
+          <div class="exp-desc">参加 Gemma4 AI 比赛，锻炼算法实现与模型应用能力。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">🤝</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">上海火山引擎 ADG 社区志愿者</span><span class="exp-tag tag-green">志愿</span></div>
+            <div class="exp-date">2025</div>
+          </div>
+          <div class="exp-desc">参与火山引擎社区志愿服务，协助技术活动组织。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">📚</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">人工智能训练师助教</span><span class="exp-tag tag-green">教学</span></div>
+            <div class="exp-date">2025</div>
+          </div>
+          <div class="exp-desc">担任 AI 训练师课程助教，辅助教学。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">✍️</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">CSDN 发表 100+ 原创文章</span><span class="exp-tag tag-blue">写作</span></div>
+            <div class="exp-date">持续</div>
+          </div>
+          <div class="exp-desc">涵盖鸿蒙、AI、前端等方向，持续输出技术知识。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">📜</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">获得开源通识认证</span><span class="exp-tag tag-green">认证</span></div>
+            <div class="exp-date">2025</div>
+          </div>
+          <div class="exp-desc">通过开源通识考试并获得官方认证。</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-icon">🎓</div>
+        <div class="exp-body">
+          <div class="exp-top">
+            <div><span class="exp-title">学生会主席 · 青年马克思主义者培养工程</span><span class="exp-tag tag-orange">校园</span></div>
+            <div class="exp-date">高中</div>
+          </div>
+          <div class="exp-desc">高中担任学生会主席，参加青马工程培养。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="sec" id="projects">
+    <div class="sec-head reveal">
+      <h2>项目作品</h2>
+      <span class="label">PROJECTS</span>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-banner"></div>
+        <div class="proj-inner">
+          <div class="proj-title">员工关系智能体</div>
+          <div class="proj-sub">Enterprise Employee Relations Agent</div>
+          <p class="proj-desc">面向企业员工关系管理的智能化平台，通过 n8n 工作流连接各业务模块，提高 HR 管理效率。</p>
+          <ul class="proj-features">
+            <li>请假申请、主管审批、HR 备案全流程</li>
+            <li>员工信息与入职管理</li>
+            <li>在职证明 Word 文件自动生成</li>
+            <li>证明模板上传匹配</li>
+            <li>政策知识库与操作审计</li>
+            <li>AI 智能问答</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">n8n</span>
+            <span class="proj-tag">AI Agent</span>
+            <span class="proj-tag">企业级</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-banner"></div>
+        <div class="proj-inner">
+          <div class="proj-title">51Job 反向招聘平台</div>
+          <div class="proj-sub">51Job Recruitment Workbench</div>
+          <p class="proj-desc">面向企业招聘人员的 51Job 招聘工作台，同步职位投递与人才数据，自动匹配评分与分类。</p>
+          <ul class="proj-features">
+            <li>连接企业账号，同步投递与搜索</li>
+            <li>自动读取候选人并匹配评分</li>
+            <li>投递管理与邀约队列</li>
+            <li>电话号码读取与 Hi 聊触发</li>
+            <li>定时读取新增投递</li>
+            <li>数据隔离与多用户云端部署</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">招聘系统</span>
+            <span class="proj-tag">数据匹配</span>
+            <span class="proj-tag">云端部署</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="coursework" aria-labelledby="coursework-title">
+    <div class="sec-head reveal">
+      <h2 id="coursework-title">开源课程实践</h2>
+      <span class="label">COURSEWORK</span>
+    </div>
+    <p class="course-note">上海杉达学院 · 开源创新思维 · 2026–2027 秋季学期<br>宋佳威 / F2505437 / F25017 · 资料整理日期：2026-10-29</p>
+    <div class="proj-grid">
+      <article class="proj-card reveal">
+        <div class="proj-banner"></div>
+        <div class="proj-inner">
+          <h3 class="proj-title">01 · 个人简历网站</h3>
+          <p class="proj-sub">HTML / CSS / JavaScript</p>
+          <p class="proj-desc">在已有个人主页上补全课程信息、响应式导航和作业索引。静态页面可直接打开，也可使用本地 HTTP 服务预览。</p>
+          <a class="course-link" href="https://github.com/Lanren749/personalweb-f25015437/blob/main/index.html" target="_blank" rel="noopener noreferrer">查看网站源码 ↗</a>
+        </div>
+      </article>
+      <article class="proj-card reveal">
+        <div class="proj-banner"></div>
+        <div class="proj-inner">
+          <h3 class="proj-title">02 · CANN 算子预研</h3>
+          <p class="proj-sub">CPU REFERENCE / TESTS</p>
+          <p class="proj-desc">提供普通电脑可运行的参考实现、测试和接入说明。属于赛题预研材料；报名、领取卡时、具体赛题确认和昇腾硬件验证仍需本人完成。</p>
+          <a class="course-link" href="https://github.com/Lanren749/personalweb-f25015437/tree/main/coursework/cann" target="_blank" rel="noopener noreferrer">阅读代码与运行说明 ↗</a>
+        </div>
+      </article>
+      <article class="proj-card reveal">
+        <div class="proj-banner"></div>
+        <div class="proj-inner">
+          <h3 class="proj-title">03 · 开源许可证合规分析</h3>
+          <p class="proj-sub">APACHE RAT / REPRODUCIBLE SCAN</p>
+          <p class="proj-desc">以真实工具扫描固定版本的开源项目，保留原始报告、运行命令和分析复核稿，区分扫描告警与人工复核结论。</p>
+          <a class="course-link" href="https://github.com/Lanren749/personalweb-f25015437/tree/main/coursework/license-compliance" target="_blank" rel="noopener noreferrer">查看报告及实验记录 ↗</a>
+        </div>
+      </article>
+      <article class="proj-card reveal">
+        <div class="proj-banner"></div>
+        <div class="proj-inner">
+          <h3 class="proj-title">04 · 复现与成果核验</h3>
+          <p class="proj-sub">LEARN / REPRODUCE / REVIEW</p>
+          <p class="proj-desc">记录材料状态和需要本人完成的学习活动。文章、视频、平台数据和社区协作按实际情况补充，不预填成绩或传播数据。</p>
+          <a class="course-link" href="https://github.com/Lanren749/personalweb-f25015437/blob/main/docs/submission-checklist.md" target="_blank" rel="noopener noreferrer">查看提交清单 ↗</a>
+        </div>
+      </article>
+    </div>
+    <p class="course-note">本次新增代码与报告使用 AI 辅助。报告为复核稿，请本人运行、理解并修订后再按教师要求正式提交。网站原有经历来自已有页面。</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="sec" id="contact">
+    <div class="sec-head reveal" style="justify-content: center; text-align: center;">
+      <h2>联系我</h2>
+      <span class="label">CONTACT</span>
+    </div>
+    <div class="contact-strip reveal">
+      <a href="https://github.com/Lanren749" target="_blank" rel="noopener noreferrer" class="contact-pill">
+        <span class="emoji">🐙</span> GitHub: Lanren749
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 宋佳威 · <a href="https://github.com/Lanren749/personalweb-f25015437" target="_blank" rel="noopener noreferrer">GitHub Repo</a></p>
+</footer>
+
+<script>
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+document.documentElement.classList.add('js-motion');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+}
+</script>
+
+</body>
+</html>
