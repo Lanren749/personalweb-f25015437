@@ -5,24 +5,24 @@
   "normal_font": "Times New Roman; eastAsia 宋体",
   "normal_font_points": 10.5,
   "normal_line_spacing": 1.25,
-  "visual_review": "All five regenerated PDF pages rendered and visually reviewed; title, identity and assessment table are complete with no clipping or overflow.",
+  "visual_review": "The regenerated cover was rendered and visually reviewed; title, seventh-week label, identity and class are complete with no clipping. PDF text extraction confirms five pages and the blank assessment table.",
   "pdf_font_note": "DOCX specifies 宋体; local PDF export substitutes Songti SC for Chinese.",
   "source_scan_files": 116,
   "own_site_scan_files": 4,
   "full_reproduction_matches_except_timestamp": true,
-  "report": "F250117-F2505437-宋佳威-许可证测试作业",
+  "report": "F2505437-宋佳威-Apache Commons CLI-软件许可测试报告",
   "student": {
     "name": "宋佳威",
     "student_id": "F2505437",
     "class": "F250117"
   },
-  "verified_on": "2026-10-29",
+  "verified_on": "2026-10-31",
   "old_class_absent_from_current_docx_and_pdf": true,
   "historical_snapshot_preserved": true,
   "historical_snapshot_note": "The four originally scanned website inputs remain unchanged; they may contain the previous class and paths.",
   "report_sha256": {
-    "md": "c480dd32a39d6b4d044410163dc6592dcf511b24d8aa579a5e07803e9d7acc3a",
-    "docx": "6418df3fcbb1695b07f58c345cbf481bb43c9080d8ce6ccca81d86e7128f04e4",
-    "pdf": "c8938cbdb3a0ed9bab42f17e51c8c1b4502fdf5bfb8a0b85c5d1f3b10fb5875b"
+    "md": "6b247ccfe53ccfb61493dd480d5fdf794d11f6c41d74daddcaf68b9d5167079c",
+    "docx": "3741ef9622eebc64757a70d513feaea8374b89b560ba059698a04eb2f035aa8a",
+    "pdf": "89b31a5b1e60ffddc0cf644df14acd91679490a8da8c5b96f4be2191933aed52"
   }
 }

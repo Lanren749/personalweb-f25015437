@@ -1,5 +1,5 @@
 {
-  "assignment": "平时作业1-第2章开源合规与许可证",
+  "assignment": "2026-10-29 第七周作业：开源项目软件许可测试",
   "student": {
     "name": "宋佳威",
     "student_id": "F2505437",
@@ -10,7 +10,7 @@
   "requirements": {
     "project_community": "Apache Software Foundation",
     "max_pages_including_cover": 5,
-    "filename": "F250117-F2505437-宋佳威-许可证测试作业",
+    "filename": "F2505437-宋佳威-Apache Commons CLI-软件许可测试报告.docx",
     "parts": [
       "开源项目介绍",
       "扫描工具安装过程及实际问题",
@@ -34,8 +34,8 @@
   ],
   "correction": {
     "class": "用户更正为F250117",
-    "display_name": "用户更名为许可证测试作业",
-    "teacher_filename_convention": "原文要求班级-学号-姓名-作业1；本次按用户指定名称展示",
+    "display_name": "文件夹名为许可证测试作业；第七周报告标题为Apache Commons CLI软件许可测试报告",
+    "teacher_filename_convention": "第七周要求：学号-姓名-开源项目名字-软件许可测试报告.docx；本次采用用户补充的最新要求",
     "historical_scan_inputs": "保持原始字节，不更改旧扫描快照"
   }
 }

@@ -1,4 +1,4 @@
-# 许可证测试作业：Apache Commons CLI 合规分析
+# Apache Commons CLI 软件许可测试报告
 
 课程编号：
 
@@ -6,9 +6,9 @@
 
 平时作业报告
 
-许可证测试作业：Apache Commons CLI 合规分析
+Apache Commons CLI 软件许可测试报告
 
-作业1 · 第2章 开源合规与许可证
+第七周作业 · 许可证测试作业
 
 | 字段 | 内容 |
 | --- | --- |

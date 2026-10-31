@@ -28,8 +28,8 @@ from docx.oxml.ns import qn
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 ROOT = Path(__file__).resolve().parents[1]
-STEM = 'F250117-F2505437-宋佳威-许可证测试作业'
-TITLE = '许可证测试作业：Apache Commons CLI 合规分析'
+STEM = 'F2505437-宋佳威-Apache Commons CLI-软件许可测试报告'
+TITLE = 'Apache Commons CLI 软件许可测试报告'
 PAGE_PENDING = False
 
 def style_run(r, size=10.5, bold=False):
@@ -150,14 +150,14 @@ def build(template:Path, export_pdf=True):
     build_time=datetime.now(timezone.utc)
     d.core_properties.created=build_time
     d.core_properties.modified=build_time
-    d.core_properties.subject='《开源创新思维》平时作业1：第2章开源合规与许可证'
+    d.core_properties.subject='《开源创新思维》2026-10-29 第七周作业：软件许可测试'
     d.core_properties.keywords='F250117,F2505437,Apache Commons CLI,Apache Rat,Apache-2.0'
     # Cover: original template table, with its merged cells and assessment fields.
     add_p(d,'课程编号：',indent=False,size=10.5,after=30)
     add_p(d,'《开源创新思维》',indent=False,size=24,bold=True,align=WD_ALIGN_PARAGRAPH.CENTER,after=12)
     add_p(d,'平时作业报告',indent=False,size=24,bold=True,align=WD_ALIGN_PARAGRAPH.CENTER,after=24)
     add_p(d,TITLE,indent=False,size=14,bold=True,align=WD_ALIGN_PARAGRAPH.CENTER,after=6)
-    add_p(d,'作业1 · 第2章 开源合规与许可证',indent=False,size=12,align=WD_ALIGN_PARAGRAPH.CENTER,after=28)
+    add_p(d,'第七周作业 · 许可证测试作业',indent=False,size=12,align=WD_ALIGN_PARAGRAPH.CENTER,after=28)
     d._element.body.insert(len(d._element.body)-1,cover_xml)
     t=d.tables[-1]
     t.cell(0,1).text='宋佳威';t.cell(0,4).text='F2505437'
@@ -293,7 +293,7 @@ Files with unapproved licenses:
             print('page',i,'characters',len(txt),'starts',txt[:50].replace(chr(10),' '))
         assert len(reader.pages)==5,'Expected exactly five pages including cover and rubric'
         all_text=''.join(p.extract_text() or '' for p in reader.pages)
-        for required in ['上海杉达学院','宋佳威','祝欣蓉','F2505437','F250117','开源项目介绍','工具输出的检测报告','检测结果详细分析','考核标准']:
+        for required in ['上海杉达学院','宋佳威','祝欣蓉','F2505437','F250117','Apache Commons CLI','软件许可测试报告','第七周作业','开源项目介绍','工具输出的检测报告','检测结果详细分析','考核标准']:
             assert required in all_text, 'Missing or corrupt rendered text: '+required
     print(path)
 
