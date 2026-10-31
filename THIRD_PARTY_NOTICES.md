@@ -4,6 +4,8 @@
 
 本仓库原创 HTML、CSS、JavaScript、Python 及测试代码采用根目录 MIT 许可证。工具调用记录和测试数据用于展示可复现过程。AI 辅助范围见 `docs/ai-assistance.md`。
 
+`项目/ai雷达/web/assets` 内随项目保留 Vue 与 Apache ECharts 浏览器分发文件，各自保留原版权及许可注释；Vue 采用 MIT，ECharts 采用 Apache-2.0。完整许可及署名文本见 [AI 雷达第三方材料说明](项目/ai雷达/THIRD_PARTY_NOTICES.md)。AI 雷达服务端 npm 依赖清单在该项目的 `package-lock.json`，其 npm 包代码不随仓库提交。
+
 ## 个人主页素材
 
 `index.html` 与 `photo.jpg` 来自开始本次任务前已经存在的本地个人网站。页面原有经历保留自原稿，并非本次新作的事实调查。发布者应逐项核对，必要时修改。照片、姓名、个人信息及肖像不在代码 MIT 授权范围内；复制网站代码不代表获准使用这些个人素材。公开页面仅保留 GitHub 联系入口。

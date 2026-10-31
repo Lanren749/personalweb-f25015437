@@ -1,0 +1,79 @@
+<view class="page">
+  <view class="intro card">
+    <view class="eyebrow">EXPENSE</view>
+    <view class="heading">{{isEdit ? '编辑支出' : '记一笔'}}</view>
+    <view class="intro-copy">记录金额、用途和所属预算区域。</view>
+  </view>
+
+  <view class="form card">
+    <view wx:if="{{recordLoadFailed}}" class="field-hint" bindtap="initializeForm">原支出加载失败，点击重试；加载成功前不能保存。</view>
+    <view class="field amount-field">
+      <view class="field-label">支出金额</view>
+      <view class="amount-entry">
+        <text class="currency">¥</text>
+        <input
+          class="amount-input"
+          type="digit"
+          value="{{amount}}"
+          placeholder="0.00"
+          bindinput="onAmountInput"
+          disabled="{{saving || recordLoading || recordLoadFailed}}"
+        />
+      </view>
+      <view class="field-hint">输入元，最多两位小数</view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">买啥了（可选）</view>
+      <input
+        class="text-input"
+        value="{{note}}"
+        placeholder="例如：午餐、地铁、电影票"
+        bindinput="onNoteInput"
+        disabled="{{saving || recordLoading || recordLoadFailed}}"
+      />
+    </view>
+
+    <view class="field">
+      <view class="field-label">所属区域</view>
+      <picker
+        mode="selector"
+        range="{{areaNames}}"
+        value="{{areaIndex}}"
+        bindchange="onAreaChange"
+        disabled="{{saving || recordLoading || recordLoadFailed || areasLoading || areaList.length === 0}}"
+      >
+        <view class="picker-value {{selectedAreaName ? '' : 'placeholder'}}">
+          <text>{{selectedAreaName || (areasLoading ? '正在加载区域…' : '请选择区域')}}</text>
+          <text class="picker-arrow">⌄</text>
+        </view>
+      </picker>
+      <view wx:if="{{!areasLoading && areasLoadFailed}}" class="field-hint" bindtap="retryAreas">区域加载失败，点击重试。</view>
+      <view wx:elif="{{!recordLoading && !recordLoadFailed && !areasLoading && areaList.length === 0}}" class="field-hint">该日期所在月份还没有预算区域，请先设置区域。</view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">日期</view>
+      <picker
+        mode="date"
+        value="{{date}}"
+        bindchange="onDateChange"
+        disabled="{{saving || recordLoading || recordLoadFailed}}"
+      >
+        <view class="picker-value">
+          <text>{{date}}</text>
+          <text class="picker-arrow">⌄</text>
+        </view>
+      </picker>
+    </view>
+
+    <button
+      class="save-button"
+      bindtap="saveExpense"
+      loading="{{saving}}"
+      disabled="{{saving || recordLoading || recordLoadFailed || areasLoading || areasLoadFailed}}"
+    >
+      {{saving ? '保存中…' : (isEdit ? '保存修改' : '保存支出')}}
+    </button>
+  </view>
+</view>

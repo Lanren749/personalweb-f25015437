@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "计算机专业赛事与项目经历管理"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "比赛雷达工作台"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "比赛雷达"
+    }
+  ]
+}

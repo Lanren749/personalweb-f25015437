@@ -1,0 +1,137 @@
+.page {
+  padding: 28rpx 30rpx 56rpx;
+}
+
+.card {
+  background: #ffffff;
+  border: 1rpx solid #edf0f2;
+  border-radius: 24rpx;
+  box-shadow: 0 10rpx 30rpx rgba(29, 53, 72, 0.045);
+}
+
+.intro {
+  padding: 30rpx 32rpx;
+  background: linear-gradient(145deg, #f2faf6 0%, #ffffff 76%);
+  border-color: #e5f1eb;
+}
+
+.eyebrow {
+  color: #6d9b85;
+  font-size: 20rpx;
+  font-weight: 700;
+  letter-spacing: 3rpx;
+}
+
+.heading {
+  margin-top: 8rpx;
+  color: #1f3029;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.intro-copy {
+  margin-top: 10rpx;
+  color: #829189;
+  font-size: 23rpx;
+}
+
+.form {
+  margin-top: 22rpx;
+  padding: 30rpx;
+}
+
+.field + .field {
+  margin-top: 30rpx;
+}
+
+.field-label {
+  margin-bottom: 12rpx;
+  color: #52645a;
+  font-size: 23rpx;
+  font-weight: 600;
+}
+
+.amount-field {
+  padding-bottom: 26rpx;
+  border-bottom: 1rpx solid #edf0ee;
+}
+
+.amount-entry {
+  display: flex;
+  align-items: center;
+  min-height: 90rpx;
+}
+
+.currency {
+  margin-right: 12rpx;
+  color: #38825c;
+  font-size: 42rpx;
+  font-weight: 600;
+}
+
+.amount-input {
+  flex: 1;
+  min-width: 0;
+  color: #26372e;
+  font-size: 54rpx;
+  font-weight: 600;
+}
+
+.field-hint {
+  margin-top: 7rpx;
+  color: #98a29c;
+  font-size: 20rpx;
+}
+
+.text-input,
+.picker-value {
+  box-sizing: border-box;
+  width: 100%;
+  height: 82rpx;
+  padding: 0 20rpx;
+  border: 1rpx solid #e5eae7;
+  border-radius: 14rpx;
+  color: #26372e;
+  background: #fbfcfb;
+  font-size: 25rpx;
+}
+
+.text-input {
+  display: flex;
+  align-items: center;
+}
+
+.picker-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.placeholder {
+  color: #a0aaa4;
+}
+
+.picker-arrow {
+  color: #86938b;
+  font-size: 30rpx;
+}
+
+.save-button {
+  height: 88rpx;
+  margin: 40rpx 0 0;
+  border: 0;
+  border-radius: 18rpx;
+  color: #ffffff;
+  background: #25885e;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 88rpx;
+}
+
+.save-button::after {
+  border: 0;
+}
+
+.save-button[disabled] {
+  opacity: 0.58;
+}

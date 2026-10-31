@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/areas/areas",
+    "pages/add/add",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "月度预算记账",
+    "navigationBarBackgroundColor": "#F5F7FA",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F5F7FA"
+  }
+}

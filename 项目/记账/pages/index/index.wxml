@@ -1,0 +1,83 @@
+<view class="page">
+  <view class="hero card">
+    <view class="eyebrow">MONTHLY BUDGET</view>
+    <view class="heading">月度预算分区记账</view>
+
+    <view class="month-switcher">
+      <button class="month-arrow" data-delta="-1" bindtap="changeMonth">‹</button>
+      <view class="month-label">{{monthLabel}}</view>
+      <button class="month-arrow" data-delta="1" bindtap="changeMonth">›</button>
+    </view>
+
+    <view class="summary card-inner">
+      <view class="summary-item">
+        <view class="summary-label">总预算</view>
+        <view class="summary-value">{{totalBudgetText}}</view>
+      </view>
+      <view class="summary-item">
+        <view class="summary-label">总支出</view>
+        <view class="summary-value">{{totalSpentText}}</view>
+      </view>
+      <view class="summary-item">
+        <view class="summary-label">总剩余</view>
+        <view class="summary-value {{totalOverspent ? 'danger' : 'positive'}}">{{totalRemainingText}}</view>
+      </view>
+    </view>
+    <view wx:if="{{totalOverspent}}" class="overspent-note">超支 {{totalOverspentText}} 元</view>
+
+    <view class="hero-actions">
+      <button class="button button-primary" bindtap="goToAdd">记一笔</button>
+      <button class="button button-secondary" bindtap="goToAreas">区域设置</button>
+    </view>
+    <view class="detail-link" bindtap="goToDetail">查看本月明细 <text>›</text></view>
+  </view>
+
+  <view class="section-heading">
+    <view>
+      <view class="section-title">预算区域</view>
+      <view class="section-subtitle">按区域查看本月使用情况</view>
+    </view>
+    <view class="count-pill">{{areaList.length}} 个</view>
+  </view>
+
+  <view wx:if="{{loading && !loaded}}" class="state-card card">
+    <view class="loader-dot"></view>
+    <text>正在加载本月数据…</text>
+  </view>
+
+  <view wx:elif="{{loadFailed}}" class="state-card card">
+    <text>数据加载失败，请下拉刷新重试</text>
+  </view>
+
+  <view wx:elif="{{loaded && areaList.length === 0}}" class="empty card">
+    <view class="empty-icon">＋</view>
+    <view class="empty-title">本月还没有设置预算区域，去设置</view>
+    <button class="button button-primary empty-button" bindtap="goToAreas">区域设置</button>
+  </view>
+
+  <view wx:elif="{{areaList.length > 0}}" class="area-list">
+    <view wx:for="{{areaList}}" wx:key="_id" class="area-card card">
+      <view class="area-heading">
+        <view class="area-mark"></view>
+        <view class="area-name">{{item.name}}</view>
+      </view>
+      <view class="metrics">
+        <view class="metric">
+          <view class="metric-label">预算</view>
+          <view class="metric-value">{{item.budgetText}}</view>
+        </view>
+        <view class="metric">
+          <view class="metric-label">已花</view>
+          <view class="metric-value">{{item.spentText}}</view>
+        </view>
+        <view class="metric metric-remaining">
+          <view class="metric-label">剩余</view>
+          <view class="metric-value {{item.overspent ? 'danger' : 'positive'}}">{{item.remainingText}}</view>
+        </view>
+      </view>
+      <view wx:if="{{item.overspent}}" class="overspent-note">超支 {{item.overspentText}} 元</view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading && loaded}}" class="refreshing">正在更新…</view>
+</view>

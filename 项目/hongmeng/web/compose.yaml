@@ -1,0 +1,56 @@
+name: career-radar
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: web/Dockerfile
+    image: career-radar-web:local
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:18080:8080"
+    env_file: .env
+    environment:
+      CATALOG_DIR: /app/catalog
+    volumes:
+      - radar-data:/app/data
+      - radar-catalog:/app/catalog
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 384m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options: { max-size: "5m", max-file: "2" }
+  public:
+    image: career-radar-web:local
+    restart: unless-stopped
+    init: true
+    depends_on: [web]
+    ports:
+      - "18081:8080"
+    environment:
+      APP_ORIGIN: http://127.0.0.1:18081
+      READ_ONLY: "1"
+      REFRESH_TIME: "09:00"
+      CATALOG_DIR: /app/catalog
+    volumes:
+      - radar-catalog:/app/catalog:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 192m
+    cpus: 0.5
+    logging:
+      driver: json-file
+      options: { max-size: "5m", max-file: "2" }
+volumes:
+  radar-data:
+  radar-catalog:

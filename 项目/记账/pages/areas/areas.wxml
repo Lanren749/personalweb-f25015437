@@ -1,0 +1,99 @@
+<view class="page">
+  <view class="hero card">
+    <view class="eyebrow">MONTHLY BUDGET</view>
+    <view class="heading">区域与预算</view>
+    <view class="month-line">
+      <text class="month-dot"></text>
+      <text>{{monthLabel}}</text>
+      <text class="month-caption">本月预算分区</text>
+    </view>
+    <view class="hero-actions">
+      <button class="button button-primary" bindtap="openAddEditor" disabled="{{loading || saving || copying || deletingId}}">新增区域</button>
+      <button class="button button-secondary" bindtap="copyPreviousMonth" disabled="{{loading || saving || copying || deletingId}}">
+        {{copying ? '正在复制…' : '复制上月预算'}}
+      </button>
+    </view>
+  </view>
+
+  <view wx:if="{{editorVisible}}" class="editor card">
+    <view class="editor-heading">{{editorTitle}}</view>
+    <view class="field">
+      <view class="field-label">区域名称</view>
+      <input class="field-input" value="{{formName}}" maxlength="30" placeholder="例如：吃饭、交通、娱乐" bindinput="onNameInput" disabled="{{saving || copying || deletingId}}" />
+    </view>
+    <view class="field-row">
+      <view class="field field-grow">
+        <view class="field-label">本月预算（元）</view>
+        <input class="field-input" type="digit" value="{{formBudget}}" placeholder="0.00" bindinput="onBudgetInput" disabled="{{saving || copying || deletingId}}" />
+      </view>
+      <view class="field sort-field">
+        <view class="field-label">排序（可选）</view>
+        <input class="field-input" type="number" value="{{formSort}}" placeholder="默认" bindinput="onSortInput" disabled="{{saving || copying || deletingId}}" />
+      </view>
+    </view>
+    <view class="editor-actions">
+      <button class="button button-quiet" bindtap="closeEditor" disabled="{{saving}}">取消</button>
+      <button class="button button-primary" bindtap="saveArea" loading="{{saving}}" disabled="{{loading || saving || copying || deletingId}}">
+        {{saving ? '保存中…' : '保存区域'}}
+      </button>
+    </view>
+  </view>
+
+  <view class="section-heading">
+    <view>
+      <view class="section-title">本月区域</view>
+      <view class="section-subtitle">每个区域的预算与可用余额</view>
+    </view>
+    <view class="count-pill">{{areaList.length}} 个</view>
+  </view>
+
+  <view wx:if="{{loading && !loaded}}" class="state-card card">
+    <view class="loader-dot"></view>
+    <text>正在加载区域…</text>
+  </view>
+
+  <view wx:elif="{{loadFailed}}" class="state-card card" bindtap="loadData">
+    <text>区域加载失败，点击重试</text>
+  </view>
+
+  <view wx:elif="{{loaded && areaList.length === 0}}" class="empty card">
+    <view class="empty-icon">＋</view>
+    <view class="empty-title">本月还没有预算区域</view>
+    <view class="empty-copy">先添加一个区域，再为它安排本月预算。</view>
+    <button class="button button-primary empty-button" bindtap="openAddEditor" disabled="{{loading || saving || copying || deletingId}}">添加第一个区域</button>
+  </view>
+
+  <view wx:else class="area-list">
+    <view wx:for="{{areaList}}" wx:key="_id" class="area-card card">
+      <view class="area-topline">
+        <view class="area-name-wrap">
+          <view class="area-mark"></view>
+          <view class="area-name">{{item.name}}</view>
+        </view>
+        <view class="area-actions">
+          <button class="text-action" data-id="{{item._id}}" bindtap="openEditEditor" disabled="{{loading || saving || copying || deletingId}}">编辑</button>
+          <button class="text-action text-danger" data-id="{{item._id}}" bindtap="removeArea" disabled="{{loading || saving || copying || deletingId}}">
+            {{deletingId === item._id ? '删除中…' : '删除'}}
+          </button>
+        </view>
+      </view>
+      <view class="metrics">
+        <view class="metric">
+          <view class="metric-label">预算</view>
+          <view class="metric-value">{{item.budgetText}}</view>
+        </view>
+        <view class="metric">
+          <view class="metric-label">已花</view>
+          <view class="metric-value">{{item.spentText}}</view>
+        </view>
+        <view class="metric metric-remaining">
+          <view class="metric-label">剩余</view>
+          <view class="metric-value {{item.overspent ? 'danger' : 'remaining-value'}}">{{item.remainingText}}</view>
+        </view>
+      </view>
+      <view wx:if="{{item.overspent}}" class="overspent-note">超支 {{item.overspentText}} 元</view>
+    </view>
+  </view>
+
+  <view class="footer-note">预算以元填写，系统按分保存。排序留空时自动放在列表末尾。</view>
+</view>

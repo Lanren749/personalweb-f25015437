@@ -1,0 +1,56 @@
+<view class="page">
+  <view class="hero card">
+    <view class="eyebrow">MONTHLY DETAILS</view>
+    <view class="heading">月度明细</view>
+
+    <view class="month-switcher">
+      <button class="month-arrow" data-delta="-1" bindtap="changeMonth">‹</button>
+      <view class="month-label">{{monthLabel}}</view>
+      <button class="month-arrow" data-delta="1" bindtap="changeMonth">›</button>
+    </view>
+  </view>
+
+  <view class="section-heading">
+    <view>
+      <view class="section-title">支出记录</view>
+      <view class="section-subtitle">按日期从新到旧排列</view>
+    </view>
+    <view class="count-pill">{{expenseList.length}} 笔</view>
+  </view>
+
+  <view wx:if="{{loading && !loaded}}" class="state-card card">
+    <view class="loader-dot"></view>
+    <text>正在加载明细…</text>
+  </view>
+
+  <view wx:elif="{{loadFailed}}" class="state-card card">
+    <text>明细加载失败，请重新进入页面</text>
+  </view>
+
+  <view wx:elif="{{loaded && expenseList.length === 0}}" class="empty card">
+    <view class="empty-icon">—</view>
+    <view class="empty-title">本月还没有支出记录</view>
+  </view>
+
+  <view wx:elif="{{expenseList.length > 0}}" class="expense-list">
+    <view wx:for="{{expenseList}}" wx:key="_id" class="expense-card card" data-id="{{item._id}}" bindtap="editExpense">
+      <view class="expense-main">
+        <view class="expense-copy">
+          <view class="expense-note">{{item.note || '无备注'}}</view>
+          <view class="expense-meta">
+            <text class="expense-area">{{item.areaName}}</text>
+            <text class="meta-dot">·</text>
+            <text>{{item.date}}</text>
+          </view>
+        </view>
+        <view class="expense-amount">-{{item.amountText}}</view>
+      </view>
+      <view class="expense-actions">
+        <view class="edit-hint">点击记录可编辑</view>
+        <button class="delete-button" data-id="{{item._id}}" catchtap="deleteExpense" loading="{{deleting}}" disabled="{{deleting}}">删除</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading && loaded}}" class="refreshing">正在更新…</view>
+</view>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>比赛雷达 · 课程项目介绍</title>
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#18382e;background:#f2f6f1}
+    *{box-sizing:border-box}body{margin:0}.deck{min-height:100vh;display:grid;place-items:center;padding:30px}
+    .slide{display:none;width:min(1080px,100%);min-height:min(680px,calc(100vh - 60px));padding:clamp(28px,6vw,78px);background:#fff;border:1px solid #dce8dd;border-radius:18px;box-shadow:0 20px 60px #294b3518}
+    .slide.active{display:flex;flex-direction:column;justify-content:center}.kicker{color:#16806a;font-size:13px;letter-spacing:3px;font-weight:700;text-transform:uppercase}
+    h1{font-size:clamp(38px,6vw,76px);line-height:1.1;margin:22px 0 18px;color:#153b30}h2{font-size:clamp(28px,4vw,48px);margin:0 0 25px}h3{font-size:21px;margin:0 0 10px}p,li{font-size:clamp(16px,2vw,21px);line-height:1.8}ul{padding-left:1.2em}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.item{padding:20px;border:1px solid #dce8dd;border-radius:10px;background:#f8fbf7}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:20px 0}.node{padding:13px 16px;background:#e7f2e9;border:1px solid #bad8c2;border-radius:8px;font-weight:650}.arrow{color:#16806a;font-size:25px}.note{margin-top:25px;padding:15px 18px;border-left:4px solid #e2a64e;background:#fff7e7;color:#70572a}.footer{position:fixed;right:24px;bottom:18px;color:#6c8174;font-size:13px}.controls{position:fixed;left:24px;bottom:15px;display:flex;gap:7px}.controls button{border:1px solid #c8d9cc;background:#fff;color:#1c644f;border-radius:7px;padding:8px 12px;cursor:pointer}@media(max-width:680px){.deck{padding:10px}.slide{min-height:calc(100vh - 20px);padding:28px 22px}.grid{grid-template-columns:1fr}.flow{display:block}.node{margin:7px 0}.arrow{display:none}.footer{right:12px;bottom:12px}.controls{left:12px;bottom:10px}}
+  </style>
+</head>
+<body>
+  <main class="deck" aria-live="polite">
+    <section class="slide active"><div class="kicker">Open Source AI Practice · Final Project</div><h1>比赛雷达</h1><p>基于 DeepSeek 的中国国内竞赛发现与简历经验规划 Agent</p><p>汇报人：宋佳威　|　学号：f25015437</p><div class="note">面向计算机专业学生：找到适合自己的比赛，把过程沉淀为真实作品和可验证经历。</div></section>
+    <section class="slide"><div class="kicker">01 · Problem</div><h2>学生真正需要的不只是搜索</h2><div class="grid"><div class="item"><h3>信息分散</h3><p>高校赛事、企业挑战赛和平台赛程分布在不同来源。</p></div><div class="item"><h3>适配困难</h3><p>同一场比赛是否适合自己的专业、方向和时间投入，需要判断。</p></div><div class="item"><h3>经验难沉淀</h3><p>报名、职责、技术方案和成果没有被组织成可复用的经历。</p></div><div class="item"><h3>AI 有风险</h3><p>赛事事实、截止时间和报名资格不能依赖模型记忆。</p></div></div></section>
+    <section class="slide"><div class="kicker">02 · Product</div><h2>一个可真实使用的普通应用</h2><ul><li>发现、搜索、近期筛选和国内来源说明</li><li>详情、收藏、参赛计划、阶段和笔记</li><li>自由填写专业、方向、目标和基础</li><li>HarmonyOS 手机/2in1 与桌面/手机网页</li><li>服务器每日采集公开来源，个人数据独立保存</li></ul></section>
+    <section class="slide"><div class="kicker">03 · Agent</div><h2>自然语言目标驱动的研究流程</h2><div class="flow"><span class="node">专业 / 方向 / 目标</span><span class="arrow">→</span><span class="node">生成检索词</span><span class="arrow">→</span><span class="node">搜索来源</span><span class="arrow">→</span><span class="node">国内过滤</span><span class="arrow">→</span><span class="node">结构化推荐</span><span class="arrow">→</span><span class="node">证据核验</span></div><p>用户选择“联网搜索 + AI 推荐”或“只分析已有国内比赛”，每次付费任务都先确认。</p></section>
+    <section class="slide"><div class="kicker">04 · Tools & Skill</div><h2>Agent 不是黑盒聊天</h2><div class="grid"><div class="item"><h3>业务工具</h3><p><code>build_search_queries</code>、<code>search_competitions</code>、<code>filter_domestic_sources</code>、<code>verify_evidence</code>、<code>save_report</code></p></div><div class="item"><h3>Skill</h3><p>明确输入、工作流、输出格式、隐私边界、成本限制和失败策略。</p></div><div class="item"><h3>证据约束</h3><p>推荐只能引用输入来源 ID，证据必须逐字出现在来源标题或摘要中。</p></div><div class="item"><h3>国内约束</h3><p>HTTPS、国内域名和中文赛事线索检查；排除明显国外赛事。</p></div></div></section>
+    <section class="slide"><div class="kicker">05 · Safety</div><h2>可控、可追溯、可解释</h2><ul><li>Key 只在服务器或设备安全存储，绝不提交 Git。</li><li>笔记、收藏和参赛计划不会发送给 AI。</li><li>固定官方 API 域名，限制请求次数、响应大小和每日额度。</li><li>失败不自动付费重试，取消时明确提示已发请求可能计费。</li><li>AI 结果展示来源和核实提示，不自动报名、付款或承诺简历收益。</li></ul></section>
+    <section class="slide"><div class="kicker">06 · Web & Account</div><h2>从公开浏览到个人空间</h2><div class="flow"><span class="node">公网 HTTP</span><span class="arrow">→</span><span class="node">赛事只读</span><span class="arrow">｜</span><span class="node">HTTPS / SSH</span><span class="arrow">→</span><span class="node">注册登录</span><span class="arrow">→</span><span class="node">个人数据 + AI Key</span></div><p>每个账号拥有独立偏好、收藏、计划、笔记、额度、报告和加密 Key。没有域名时用 SSH 隧道安全演示；配置可信 HTTPS 后即可从手机浏览器使用。</p></section>
+    <section class="slide"><div class="kicker">07 · Verification</div><h2>代码和测试证明了什么</h2><div class="grid"><div class="item"><h3>服务端测试</h3><p>20 项测试全通过：账号隔离、CSRF、Host、只读公网、Key 加密、额度和失败保留。</p></div><div class="item"><h3>Agent 测试</h3><p>首轮必须产生标准 <code>tool_calls</code>，服务端执行搜索或目录分析，再用来源 ID 和逐字证据核验。</p></div><div class="item"><h3>原生测试</h3><p>HarmonyOS 的日期、筛选、来源解析、网络边界、AI 解析和存储回归测试保留。</p></div><div class="item"><h3>诚实边界</h3><p>不是全国赛事穷举，不自动报名，不保证获奖或简历加分，最终以主办方官网为准。</p></div></div></section>
+    <section class="slide"><div class="kicker">08 · Demo</div><h2>八分钟功能演示</h2><ol><li>发现页筛选国内近期比赛，打开官方详情。</li><li>填写“计算机科学与技术 / AI、Java 后端 / 想形成真实项目”。</li><li>执行“只分析已有国内比赛”，展示一次模型调用。</li><li>执行联网搜索，展示工具调用、来源、逐字证据、理由和行动建议。</li><li>注册第二个账号，快速说明个人数据隔离；回到第一个账号加入参赛计划，填写真实职责。</li></ol><div class="note">代码、运行方式、架构图和课堂脚本见同目录 Markdown 文件。封面姓名和学号需在提交前补入。</div></section>
+  </main>
+  <div class="controls"><button id="prev" type="button">上一页</button><button id="next" type="button">下一页</button></div><div class="footer" id="count"></div>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];let index=0;
+    function show(next){index=(next+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===index));document.querySelector('#count').textContent=(index+1)+' / '+slides.length}
+    document.querySelector('#prev').onclick=()=>show(index-1);document.querySelector('#next').onclick=()=>show(index+1);
+    document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')show(index+1);if(e.key==='ArrowLeft')show(index-1)});show(0);
+  </script>
+</body>
+</html>

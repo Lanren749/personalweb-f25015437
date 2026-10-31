@@ -1,0 +1,24 @@
+page {
+  background: #f5f7fa;
+  color: #243247;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.page {
+  padding: 32rpx;
+}
+
+.card {
+  padding: 32rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
+}
+
+.muted {
+  color: #66758a;
+}
+
+.overspent {
+  color: #c62828;
+}
